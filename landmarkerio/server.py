@@ -1,8 +1,8 @@
 from functools import partial, wraps
 from flask import Flask, request, send_file, make_response, Response
-from flask.ext.restful import abort, Api, Resource
-#from flask.ext.restful.utils import cors
-import cors  # until twilio/flask-restful/pull/276 is merged, see the package
+from flask_restful import abort, Api, Resource
+from flask_restful.utils import cors
+#import cors  # until twilio/flask-restful/pull/276 is merged, see the package
 from landmarkerio import Server, Endpoints, Mimetype
 
 url = lambda *x: '/' + '/'.join(x)

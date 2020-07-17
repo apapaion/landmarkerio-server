@@ -142,7 +142,7 @@ def convert_legacy_template(path):
 
     os.remove(path)
 
-    print " - {} > {} {}".format(path, new_path, warning)
+    print(" - {} > {} {}".format(path, new_path, warning))
 
 
 def load_template(path, n_dims):
@@ -179,13 +179,13 @@ class FileTemplateAdapter(TemplateAdapter):
                 raise ValueError("No template dir provided and "
                                  "{} doesn't exist".format(user_templates))
         self.template_dir = Path(p.abspath(p.expanduser(template_dir)))
-        print ('templates: {}'.format(self.template_dir))
+        print('templates: {}'.format(self.template_dir))
 
     def handle_old_templates(self, upgrade_templates=False):
         old_ids = [t.stem for t
                    in self.template_dir.glob('*' + FileExt.old_template)]
         if len(old_ids) > 0 and upgrade_templates:
-            print "Converting {} old style templates".format(len(old_ids))
+            print("Converting {} old style templates".format(len(old_ids)))
             for lm_id in old_ids:
                 fp = safe_join(str(self.template_dir),
                                lm_id + FileExt.old_template)
